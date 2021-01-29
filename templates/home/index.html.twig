@@ -4,11 +4,22 @@
 
 {% block body %}
 
-    {{ user.username }}
-
+    <p>from one user.post</p>
     <ul>
         {% for post in user.post %}
-            <li>{{ post.id }} - {{ post.status }} {{ dump(post.post.content) }}</li>
+            <li>{{ post.id }} - {{ post.status }} {{ post.post.content }}</li>
+        {% endfor %}
+    </ul>
+
+    <p>from posts</p>
+    <ul>
+        {% for post in posts %}
+            <li>{{ post.id }} - {{ post.content }}</li>
+            <ul>
+                {% for u in post.user %}
+                    <li>{{ u.user.username }}</li>
+                {% endfor %}
+            </ul>
         {% endfor %}
     </ul>
 

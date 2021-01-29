@@ -21,12 +21,12 @@ class AppFixtures extends Fixture
             $user->setUsername($firstname);
             $manager->persist($user);
 
-            $post = new Post();
-            $content = $faker->text($maxNbChars = 200);
-            $post->setContent($content);
-            $manager->persist($post);
-
             for($j = 0; $j <= 5; $j++) {
+                $post = new Post();
+                $content = $faker->text($maxNbChars = 200);
+                $post->setContent($content);
+                $manager->persist($post);
+
                 $userPost = new UserPost();
                 $userPost->setUser($user);
                 $userPost->setPost($post);
