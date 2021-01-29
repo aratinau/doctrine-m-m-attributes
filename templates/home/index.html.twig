@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+
+    {{ user.username }}
+
+    <ul>
+        {% for post in user.post %}
+            <li>{{ post.id }} - {{ post.status }} {{ dump(post.post.content) }}</li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
